@@ -130,13 +130,13 @@ class Employee extends \Eloquent implements AuthenticatableContract,
      **/
     public function setPhotoAttribute($file)
     {
-        $fileName = uniqid() . '.' . $file->getClientOriginalExtension();
-        $filePath = 'images/uploads/' . $fileName;
-        $thumbPath = 'images/uploads/thumbs/' . $fileName;
-        $image = \Image::make($file)->fit(320, 320, null, 'top')->save($filePath);
-        $thumbnail = $image->fit(64)->save($thumbPath);
-        $this->attributes['photo'] = '/' . $filePath;
-        $this->attributes['thumbnail'] = '/' . $thumbPath;
+        // $fileName = uniqid() . '.' . $file->getClientOriginalExtension();
+        // $filePath = 'images/uploads/' . $fileName;
+        // $thumbPath = 'images/uploads/thumbs/' . $fileName;
+        // $image = \Image::make($file)->fit(320, 320, null, 'top')->save($filePath);
+        // $thumbnail = $image->fit(64)->save($thumbPath);
+        // $this->attributes['photo'] = '/' . $filePath;
+        // $this->attributes['thumbnail'] = '/' . $thumbPath;
     }
 
     /**

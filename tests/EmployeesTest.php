@@ -6,6 +6,8 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class EmployeesTest extends TestCase
 {
+	use DatabaseMigrations;
+
     /**
      * A basic test example.
      *
@@ -13,9 +15,13 @@ class EmployeesTest extends TestCase
      */
     public function testIndex()
     {
+    	$employee = factory(App\Models\Employee::class)->create();
+
         $this->get('/api/employees')
         	 ->seeJson([
-        	 	'first_name' => 'Admin'
+        	 	'first_name' => $employee->first_name,
+        	 	'last_name'  => $employee->last_name,
+        	 	'email'      => $employee->email,
         	 ]);
     }
 }
